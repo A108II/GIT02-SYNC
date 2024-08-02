@@ -57,7 +57,7 @@ We will see Everything up-to-date
 and then we only need to write `git push` 
 
 
-- Next we're gonna use this command `git commit --amend -m "Version 4 new"`and then `git log --all --graph`. we're gonna see that the  `Version 4` branches off of the current branch. On our local master branch, we got rid of the old commit and overode it. While in github the master branch has still the old commit.
+- Next we're gonna use this command `git commit --amend -m "commit-name(new)"`and then `git log --all --graph`. we're gonna see that the  `commit-name` branches off of the current branch. On our local master branch, we got rid of the old commit and overode it. While in github the master branch has still the old commit.
 
 - Let's override the master branch in github with our local master branch.
 `git push origin master`
@@ -72,17 +72,17 @@ hint: See the 'Note about fast-forwards' in 'git push --help' for details.
 
 - So here we write this command: `git push origin master -f` -f means force push the commit to the github even if it overrides the commit on github. 
 
-- Now, we can see that the origin/master is in sync with the local master branch. Now we only see the "Version 4 new" and not "Version 4". Because we replaced the old commit with "Version 4 new". 
+- Now, we can see that the origin/master is in sync with the local master branch.
 
 - Next, we're going to use a feature which enables us to make changes in github which is the remote repository and it will be synced with the local repository, this way local repository will also be affected. 
 
 - To do this, we need to pretend that we're on a different machine, and we're going to download the github repo by using this command in a new terminal and we have to cd to desktop: `git clone url foldername(optional)`. 
 
-- Now we have two local repository, altough they have the same commit history, if we update one of the local repository, it won't affect the others. We're gonna create a new commit in the recently downloaded folder, and push it to github and then sync those changes back to our local repository (The old one). 
+- Now we have two local repository, altough they have the same commit history, if we update one of the local repository, it won't affect the others.  We're gonna create a new commit in the recently downloaded folder `git add .`, `git commit -m “update README”`, and push it to github `git push origin master`. 
 
-- Now switching back to the old folder which contains the original commit history, when we use `git log —all —graph`. The commit history shows that the last commit is Version 4 new. But it should be Version 5. This shows that remote tracking branches don’t update automatically. 
+- Now switching back to the old folder which contains the original commit history, when we use `git log —all —graph`. The commit history shows that the previous commit. But it should show the latest commit. This shows that remote tracking branches don’t update automatically. 
 
-- In order to update the remote tracking branches, we use this command: `git fetch` will update the remote tracking branches to the current state In GitHub. 
+- In order to update the remote tracking branch, we use this command: `git fetch` will update the remote tracking branches to the current state In GitHub. 
 
 - Here, we will see that the (origin/master) branch is ahead of the local master branch. Next, we need to sync this commit back to our local repository. Here we need to pull changes from GitHub, we will use this command: `git pull origin master`  . By using the command `git log —all —graph` we will see that our local  master branch is in sync with the remote branch. By using `git pull origin master —set-upstream` command git will memorize the origin and master. So if we type `git pull` it will do the same job. If we run this command once, it will work for `git pull` and `git push`. 
 
